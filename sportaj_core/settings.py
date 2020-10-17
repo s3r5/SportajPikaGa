@@ -87,9 +87,9 @@ DATABASES = {
         'USER': 'postgres',
         # Rad bi si mislil, da osebe vejo, da je to lažno geslo.
         # Ampak hej! ker ne vedo sem napisal ta komentar oz. komentarja
-        'PASSWORD': 'mysecretpassword',
+        'PASSWORD': 'admin',
         'HOST': '127.0.0.1',
-        'PORT': '58899',
+        'PORT': '5432',
     }
 }
 
