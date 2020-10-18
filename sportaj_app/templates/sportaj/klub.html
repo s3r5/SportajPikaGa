@@ -1,2 +1,5 @@
 {% extends 'sportaj/base.html' %}
-{% block title %} Klub - {{ kid }}{% endblock title %}
+{% block title %}{{ klub.ime }}{% endblock title %}
+{% block main %}
+    {{ klub.opis }}
+{% endblock main %}

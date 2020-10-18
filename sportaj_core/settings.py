@@ -39,6 +39,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'sportaj_app',
 
+    'taggit',
+    'analytical',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

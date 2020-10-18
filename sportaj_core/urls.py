@@ -20,6 +20,6 @@ import sportaj_app.views
 
 urlpatterns = [
     path("", sportaj_app.views.HomeView.as_view(), name="home"),
-    path("klub/<kid>", sportaj_app.views.KlubView.as_view(), name="klub"),
+    path("klub/<slug>", sportaj_app.views.KlubView.as_view(), name="klub"),
     path('admin/', admin.site.urls),
 ]
