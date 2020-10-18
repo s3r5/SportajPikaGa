@@ -4,7 +4,7 @@ from taggit.managers import TaggableManager
 
 
 class Klub(models.Model):
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     ime = models.CharField(max_length=512)
     opis = models.CharField(max_length=4096)
     logo = models.URLField()
