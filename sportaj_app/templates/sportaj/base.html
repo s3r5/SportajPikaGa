@@ -11,7 +11,7 @@
     <!--region OpenGraph -->
     <meta property="og:title" content="{% block ogTitle %}Sportaj.ga{% endblock ogTitle %}"/>
     <meta property="og:url"
-          content="{% block ogUrl %} {{ request.build_absolute_uri | urlencode }} {% endblock ogUrl %}"/>
+          content="{% block ogUrl %}{{ request.build_absolute_uri }}{% endblock ogUrl %}"/>
     <!--endregion OpenGraph -->
 
     <!--region Twitter Card -->

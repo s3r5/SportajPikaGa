@@ -1,5 +1,20 @@
 {% extends 'sportaj/base.html' %}
 {% block title %}{{ klub.ime }}{% endblock title %}
 {% block main %}
-    <h4 class="display-4">{{ klub.opis }}</h4>
+    <div class="row">
+        <div class="col col-md-1"><img class="rounded-circle img-fluid float-left" src="{{ klub.logo }}"></div>
+        <div class="col col-md-11">
+            <div class="row align-items-start">
+                <div class="col">
+                    <h1 class="float-left display-4">{{ klub.ime }}</h1>
+                </div>
+            </div>
+            <div class="row align-items-end">
+                <div class="col">
+                    <p>{{ klub.opis }}</p>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
 {% endblock main %}
