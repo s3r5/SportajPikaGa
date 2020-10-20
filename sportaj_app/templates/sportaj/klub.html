@@ -2,8 +2,8 @@
 {% block title %}{{ klub.ime }}{% endblock title %}
 {% block main %}
     <div class="row">
-        <div class="col col-md-1"><img class="rounded-circle img-fluid float-left" src="{{ klub.logo }}"></div>
-        <div class="col col-md-11">
+        <div class="col col-md-2"><img class="rounded-circle img-fluid float-left" style="padding-top: 10px" src="{{ klub.logo }}"></div>
+        <div class="col col-md-10">
             <div class="row align-items-start">
                 <div class="col">
                     <h1 class="float-left display-4">{{ klub.ime }}</h1>
@@ -13,7 +13,13 @@
                 <div class="col">
                     <p>{{ klub.opis }}</p>
                 </div>
-                <div class="col"></div>
+                <div class="col">
+                    <div class="row float-right">
+                        <div class="col col-md-auto"><span class="badge badge-primary">Odbojka</span></div>
+                        <div class="col col-md-auto"><span class="badge badge-primary">Nogomet</span></div>
+                        <div class="col col-md-auto"><span class="badge badge-primary">Atletika</span></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
