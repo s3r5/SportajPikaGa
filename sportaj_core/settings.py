@@ -84,16 +84,7 @@ WSGI_APPLICATION = 'sportaj_core.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
-        'USER': 'postgres',
-        # Rad bi si mislil, da osebe vejo, da je to lažno geslo.
-        # Ampak hej! ker ne vedo sem napisal ta komentar oz. komentarja
-        'PASSWORD': 'admin',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+	"default": env.db() if env("DATABASE_URL", default=None) else {}
 }
 
 # Password validation
