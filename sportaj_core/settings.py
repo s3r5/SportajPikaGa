@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'sportaj_core.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-	"default": env.db() if env("DATABASE_URL", default=None) else {}
+    "default": env.db() if env("DATABASE_URL", default=None) else {}
 }
 
 # Password validation
