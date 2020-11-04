@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'taggit',
     'analytical',
+    'mathfilters',
 
     'django.contrib.admin',
     'django.contrib.auth',

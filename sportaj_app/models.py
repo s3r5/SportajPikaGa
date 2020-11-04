@@ -6,7 +6,10 @@ from taggit.managers import TaggableManager
 
 def get_header_images_default():
     # TODO: Use proper placeholder image
-    return list(['http://www.atletski-klub-poljane.si/wp-content/themes/poljane/images/header/8.jpg'])
+    return list([
+        'http://www.atletski-klub-poljane.si/wp-content/themes/poljane/images/header/8.jpg',
+        'http://share.quantumlytangled.com/7DxO55p5'
+    ])
 
 
 class Klub(models.Model):
@@ -15,7 +18,11 @@ class Klub(models.Model):
     opis = models.CharField(max_length=4096)
     logo = models.URLField()
     header_images = ArrayField(
-        models.URLField(default=''),
+        models.URLField(
+            verbose_name='Header Image',
+            name='header_image',
+            default=None
+        ),
         verbose_name='Header Images',
         name='header_images',
         default=get_header_images_default
