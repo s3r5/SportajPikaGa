@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
+from location_field.models.plain import PlainLocationField
 
 from taggit.managers import TaggableManager
 
@@ -12,10 +13,16 @@ def get_header_images_default():
     ])
 
 
+def get_location_city_default():
+    return 'Maribor'
+
+
 class Klub(models.Model):
     slug = models.SlugField(unique=True)
+
     ime = models.CharField(max_length=512)
     opis = models.CharField(max_length=4096)
+
     logo = models.URLField()
     header_images = ArrayField(
         models.URLField(
@@ -26,6 +33,15 @@ class Klub(models.Model):
         verbose_name='Header Images',
         name='header_images',
         default=get_header_images_default
+    )
+
+    city = models.CharField(
+        max_length=1023,
+        default=get_location_city_default()
+    )
+    location = PlainLocationField(
+        based_fields=['city'],
+        default=get_location_city_default()
     )
 
     tags = TaggableManager()

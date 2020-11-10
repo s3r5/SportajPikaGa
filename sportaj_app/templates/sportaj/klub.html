@@ -5,7 +5,7 @@
     <style>
         @media (min-width: 1500px) {
             .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-                max-width: 1425px
+                max-width: 1425px;
             }
         }
 
@@ -39,9 +39,14 @@
     <div class="row pad-top">
         <div class="col col-md-4">
             <div class="card">
-                <div class="card-body">
+                <div class="card-header">
                     <img class="rounded-circle img-fluid center-block"
                          src="{{ klub.logo }}">
+                </div>
+                <div class="card-body">
+                    <section class="d-flex justify-content-center">
+                        <i class="fas fa-map-pin"></i> {{ klub.location }}
+                    </section>
                 </div>
             </div>
         </div>

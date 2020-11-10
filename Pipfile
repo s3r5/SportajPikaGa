@@ -12,6 +12,7 @@ django-environ = "*"
 django-taggit = "*"
 django-analytical = "*"
 django-mathfilters = "*"
+django-location-field = "*"
 
 [requires]
 python_version = "3.8"
