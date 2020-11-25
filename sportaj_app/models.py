@@ -44,6 +44,10 @@ class Klub(models.Model):
         default=get_location_city_default()
     )
 
+    mail = models.EmailField(null=True, blank=True)
+    homepage = models.URLField(null=True, blank=True)
+    facebook = models.URLField(null=True, blank=True)
+
     tags = TaggableManager()
 
     class Meta:
