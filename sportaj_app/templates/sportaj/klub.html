@@ -33,6 +33,16 @@
             background: rgb(52, 47, 47);
             background: rgba(52, 47, 47, 0.7);
         }
+
+        section.profile-entries {
+            padding: 1.5%;
+        }
+
+        a.profile-link-icon {
+            margin: 1%;
+            padding-left: 1%;
+            padding-right: 1%;
+        }
     </style>
 {% endblock head %}
 {% block main %}
@@ -44,8 +54,15 @@
                          src="{{ klub.logo }}">
                 </div>
                 <div class="card-body">
-                    <section class="d-flex justify-content-center">
-                        <i class="fas fa-map-pin"></i>&nbsp;&nbsp;&nbsp;{{ klub.location }}
+                    <section class="d-flex justify-content-center profile-entries">
+                        <i class="fas fa-map-pin fa-lg"></i>&nbsp;&nbsp;&nbsp;{{ klub.location }}
+                    </section>
+                    <section class="d-flex justify-content-center profile-entries">
+                        <!-- TODO: poglej ali je element v bazi pred renderom -->
+                        <a class="fas fa-globe fa-lg profile-link-icon"></a>
+                        <a class="fas fa-paper-plane fa-lg profile-link-icon"></a>
+                        <a class="fab fa-facebook-f fa-lg profile-link-icon"></a>
+                        <a class="fab fa-twitter fa-lg profile-link-icon"></a>
                     </section>
                 </div>
             </div>
