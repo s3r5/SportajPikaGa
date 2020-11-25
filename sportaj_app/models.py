@@ -46,6 +46,8 @@ class Klub(models.Model):
 
     mail = models.EmailField(null=True, blank=True)
     homepage = models.URLField(null=True, blank=True)
+
+    twitter = models.URLField(null=True, blank=True)
     facebook = models.URLField(null=True, blank=True)
 
     tags = TaggableManager()
