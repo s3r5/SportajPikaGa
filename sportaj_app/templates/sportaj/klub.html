@@ -58,11 +58,14 @@
                         <i class="fas fa-map-pin fa-lg"></i>&nbsp;&nbsp;&nbsp;{{ klub.location }}
                     </section>
                     <section class="d-flex justify-content-center profile-entries">
-                        <!-- TODO: poglej ali je element v bazi pred renderom -->
-                        <a class="fas fa-globe fa-lg profile-link-icon"></a>
-                        <a class="fas fa-paper-plane fa-lg profile-link-icon"></a>
-                        <a class="fab fa-facebook-f fa-lg profile-link-icon"></a>
-                        <a class="fab fa-twitter fa-lg profile-link-icon"></a>
+                        {% if klub.homepage != None %}
+                            <a class="fas fa-globe fa-lg profile-link-icon" href="{{ klub.homepage }}"></a>{% endif %}
+                        {% if klub.email != None %}
+                            <a class="fas fa-paper-plane fa-lg profile-link-icon" href="{{ klub.email }}"></a>{% endif %}
+                        {% if klub.twitter != None %}
+                            <a class="fab fa-facebook-f fa-lg profile-link-icon" href="{{ klub.twitter }}"></a>{% endif %}
+                        {% if klub.facebook != None %}
+                            <a class="fab fa-twitter fa-lg profile-link-icon" href="{{ klub.facebook }}"></a>{% endif %}
                     </section>
                 </div>
             </div>
