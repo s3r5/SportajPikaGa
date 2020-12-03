@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'static_precompiler',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = root(env("STATIC_DIR", default="../static"))
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'static_precompiler.finders.StaticPrecompilerFinder'
+]
+
+STATIC_PRECOMPILER_COMPILERS = (
+    ('static_precompiler.compilers.libsass.SCSS', {
+        "sourcemap_enabled": False,
+        "load_paths": ["/path"],
+        "precision": 8,
+    }),
+    ('static_precompiler.compilers.libsass.SASS', {
+        "sourcemap_enabled": False,
+        "load_paths": ["/path"],
+        "precision": 8,
+        "output_style": "compressed",
+    }),
+)

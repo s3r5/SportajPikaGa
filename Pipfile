@@ -6,13 +6,14 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "*"
 psycopg2 = "*"
 django-environ = "*"
 django-taggit = "*"
 django-analytical = "*"
 django-mathfilters = "*"
 django-location-field = "*"
+django-static-precompiler = {extras = ["libsass"], version = "*"}
+django = "~=2.2"
 
 [requires]
 python_version = "3.8"
