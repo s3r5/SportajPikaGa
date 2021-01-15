@@ -1,5 +1,4 @@
 from django.views.generic.base import TemplateView
-from django.views.generic.detail import DetailView
 
 from sportaj_app import models
 from django.http import Http404

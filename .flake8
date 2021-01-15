@@ -1,0 +1,10 @@
+[flake8]
+exclude =
+    .git,
+    .github,
+    sportaj_app/migrations
+
+import-order-style = google
+application-import-names = sportaj_app,sportaj_core
+
+max-line-length = 100
