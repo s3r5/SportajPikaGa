@@ -1,0 +1,12 @@
+version: "2.4"
+services:
+  postgis:
+    container_name: postgis
+    image: postgis/postgis
+    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
+    external: true
