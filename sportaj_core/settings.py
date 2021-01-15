@@ -21,9 +21,7 @@ root = environ.Path(__file__) - 2
 
 # Fetch env vars
 os.environ.setdefault("ENV_FILE", root(".env"))
-env = environ.Env(
-    DEBUG=(bool, False)
-)
+env = environ.Env(DEBUG=(bool, False))
 if os.path.isfile(os.environ["ENV_FILE"]):
     env.read_env(os.environ["ENV_FILE"])
 
@@ -37,63 +35,59 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'sportaj_app',
-
-    'taggit',
-    'analytical',
-    'mathfilters',
-    'location_field.apps.DefaultConfig',
-
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'static_precompiler',
+    "sportaj_app",
+    "taggit",
+    "analytical",
+    "mathfilters",
+    "location_field.apps.DefaultConfig",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "static_precompiler",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'sportaj_core.urls'
+ROOT_URLCONF = "sportaj_core.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'sportaj_core.wsgi.application'
+WSGI_APPLICATION = "sportaj_core.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': env.db() if env("DATABASE_URL", default=None) else {}
-}
+DATABASES = {"default": env.db() if env("DATABASE_URL", default=None) else {}}
 
 CACHES = {
-    'default': {
-        'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': env('REDIS_URL', default='localhost:6379')
+    "default": {
+        "BACKEND": "redis_cache.RedisCache",
+        "LOCATION": env("REDIS_URL", default="localhost:6379"),
     }
 }
 
@@ -102,25 +96,25 @@ CACHES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -131,26 +125,32 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 STATIC_ROOT = root(env("STATIC_DIR", default="../static"))
 
 STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
     # other finders..
-    'static_precompiler.finders.StaticPrecompilerFinder'
+    "static_precompiler.finders.StaticPrecompilerFinder",
 ]
 
 STATIC_PRECOMPILER_COMPILERS = (
-    ('static_precompiler.compilers.libsass.SCSS', {
-        "sourcemap_enabled": False,
-        "load_paths": ["/path"],
-        "precision": 8,
-    }),
-    ('static_precompiler.compilers.libsass.SASS', {
-        "sourcemap_enabled": False,
-        "load_paths": ["/path"],
-        "precision": 8,
-        "output_style": "compressed",
-    }),
+    (
+        "static_precompiler.compilers.libsass.SCSS",
+        {
+            "sourcemap_enabled": False,
+            "load_paths": ["/path"],
+            "precision": 8,
+        },
+    ),
+    (
+        "static_precompiler.compilers.libsass.SASS",
+        {
+            "sourcemap_enabled": False,
+            "load_paths": ["/path"],
+            "precision": 8,
+            "output_style": "compressed",
+        },
+    ),
 )

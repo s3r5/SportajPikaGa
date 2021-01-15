@@ -6,23 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('sportaj_app', '0007_auto_20201110_1319'),
+        ("sportaj_app", "0007_auto_20201110_1319"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='klub',
-            name='facebook',
+            model_name="klub",
+            name="facebook",
             field=models.URLField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='klub',
-            name='homepage',
+            model_name="klub",
+            name="homepage",
             field=models.URLField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='klub',
-            name='mail',
+            model_name="klub",
+            name="mail",
             field=models.EmailField(blank=True, max_length=254, null=True),
         ),
     ]

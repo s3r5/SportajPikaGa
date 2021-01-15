@@ -8,13 +8,18 @@ import sportaj_app.models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('sportaj_app', '0003_auto_20201018_2201'),
+        ("sportaj_app", "0003_auto_20201018_2201"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='klub',
-            name='Header Images',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.URLField(default=''), default=sportaj_app.models.get_header_images_default, size=None, verbose_name='header_images'),
+            model_name="klub",
+            name="Header Images",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.URLField(default=""),
+                default=sportaj_app.models.get_header_images_default,
+                size=None,
+                verbose_name="header_images",
+            ),
         ),
     ]

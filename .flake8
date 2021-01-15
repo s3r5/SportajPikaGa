@@ -4,6 +4,8 @@ exclude =
     .github,
     sportaj_app/migrations
 
+ignore = E203,W503
+
 import-order-style = google
 application-import-names = sportaj_app,sportaj_core
 

@@ -9,23 +9,39 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('taggit', '0003_taggeditem_add_unique_index'),
+        ("taggit", "0003_taggeditem_add_unique_index"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Klub',
+            name="Klub",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('ime', models.CharField(max_length=512)),
-                ('slug', models.CharField(max_length=512)),
-                ('opis', models.CharField(max_length=4096)),
-                ('logo', models.URLField()),
-                ('tags', taggit.managers.TaggableManager(help_text='A comma-separated list of tags.', through='taggit.TaggedItem', to='taggit.Tag', verbose_name='Tags')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("ime", models.CharField(max_length=512)),
+                ("slug", models.CharField(max_length=512)),
+                ("opis", models.CharField(max_length=4096)),
+                ("logo", models.URLField()),
+                (
+                    "tags",
+                    taggit.managers.TaggableManager(
+                        help_text="A comma-separated list of tags.",
+                        through="taggit.TaggedItem",
+                        to="taggit.Tag",
+                        verbose_name="Tags",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Klub',
-                'verbose_name_plural': 'Klubi',
+                "verbose_name": "Klub",
+                "verbose_name_plural": "Klubi",
             },
         ),
     ]

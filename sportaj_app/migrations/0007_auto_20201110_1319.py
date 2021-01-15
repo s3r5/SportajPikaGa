@@ -7,18 +7,20 @@ import location_field.models.plain
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('sportaj_app', '0006_auto_20201104_1003'),
+        ("sportaj_app", "0006_auto_20201104_1003"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='klub',
-            name='city',
-            field=models.CharField(default='Maribor', max_length=1023),
+            model_name="klub",
+            name="city",
+            field=models.CharField(default="Maribor", max_length=1023),
         ),
         migrations.AddField(
-            model_name='klub',
-            name='location',
-            field=location_field.models.plain.PlainLocationField(default='Maribor', max_length=63),
+            model_name="klub",
+            name="location",
+            field=location_field.models.plain.PlainLocationField(
+                default="Maribor", max_length=63
+            ),
         ),
     ]
