@@ -87,7 +87,14 @@ WSGI_APPLICATION = 'sportaj_core.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db() if env("DATABASE_URL", default=None) else {}
+    'default': env.db() if env("DATABASE_URL", default=None) else {}
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'redis_cache.RedisCache',
+        'LOCATION': env('REDIS_URL', default='localhost:6379')
+    }
 }
 
 # Password validation

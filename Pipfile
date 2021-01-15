@@ -14,6 +14,7 @@ django-mathfilters = "*"
 django-location-field = "*"
 django-static-precompiler = {extras = ["libsass"], version = "*"}
 django = "~=2.2"
+django-redis-cache = "*"
 
 [requires]
 python_version = "3.8"
