@@ -5,7 +5,7 @@ services:
     image: postgis/postgis
     restart: always
     env_file:
-      - docker.env
+      - .env
     ports:
       - '5432:5432'
     volumes:
