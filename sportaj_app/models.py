@@ -25,13 +25,7 @@ class Klub(models.Model):
     ime = models.CharField(max_length=512)
     opis = models.CharField(max_length=4096)
 
-    logo = models.URLField()
-    header_images = ArrayField(
-        models.URLField(verbose_name="Header Image", name="header_image", default=None),
-        verbose_name="Header Images",
-        name="header_images",
-        default=get_header_images_default,
-    )
+    logo = models.FileField(upload_to="klub_logo/", blank=True)
 
     location = PlainLocationField(
         based_fields=["city"], default=get_location_city_default()
@@ -51,3 +45,17 @@ class Klub(models.Model):
 
     def __str__(self):
         return self.ime
+
+class SlikaKluba(models.Model):
+    naslov = models.CharField(max_length=512)
+    opis = models.CharField(max_length=4096)
+    slike = models.FileField(upload_to="header_slike/")
+
+    klub = models.ForeignKey(Klub, on_delete=models.CASCADE, related_name="slike")
+
+    class Meta:
+        verbose_name = "Slika"
+        verbose_name_plural = "Slike"
+
+    def __str__(self):
+        return "%s - %s" % (self.klub, self.naslov)
