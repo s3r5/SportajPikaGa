@@ -99,10 +99,10 @@
             <div class="card border border-dark">
                 <div class="card-header border border-dark header-image">
                     <div style="position: relative">
-                        {% with klub.headerSlike.all|first as headerSlikePrva %}
+                        {% with headerSlike.all|first as headerSlikePrva %}
                             <img class="img-fluid" src="{{ headerSlikePrva.slika.url }}" alt="{{ headerSlikePrva.opis }}">
                         {% endwith %}
-                        {% with klub.headerSlike.count|sub:1 as image_count %}
+                        {% with headerSlike.count|sub:1 as image_count %}
                             {% if image_count > 0 %}
                                 <div class="image-count">
                                     še {{ image_count }}
