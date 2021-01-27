@@ -168,3 +168,5 @@ LOCATION_FIELD = {
     "provider.google.api_libraries": "",
     "provider.google.map.type": "ROADMAP",
 }
+
+GOOGLE_ANALYTICS_GTAG_PROPERTY_ID = env("GOOGLE_ANALYTICS_GTAG_PROPERTY_ID", default="")
