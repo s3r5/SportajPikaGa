@@ -26,11 +26,10 @@ if os.path.isfile(os.environ["ENV_FILE"]):
     env.read_env(os.environ["ENV_FILE"])
 
 SECRET_KEY = env("SECRET_KEY", default="NOT_NEEDED_FOR_DOCKER_BUILDS")
+ALLOWED_HOSTS = env("ALLOWED_HOSTS", default=[])
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = env("DEBUG", default=True)
 
 # Application definition
 
