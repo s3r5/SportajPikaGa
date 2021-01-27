@@ -88,7 +88,7 @@ DATABASES = {
 CACHES = {
     "default": {
         "BACKEND": "redis_cache.RedisCache",
-        "LOCATION": env("REDIS_URL", default="localhost:6379"),
+        "LOCATION": env("REDIS_URL", default="127.0.0.1:6379"),
     }
 }
 
