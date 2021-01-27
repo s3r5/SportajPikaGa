@@ -6,4 +6,4 @@ geolocator = Nominatim(user_agent="sportaj.ga")
 
 @register.filter(name='latlongHuman')
 def latlongHuman(value):
-    return geolocator.reverse(value).adress
+    return geolocator.reverse(value).address
