@@ -1,5 +1,6 @@
 {% extends 'sportaj/base.html' %}
 {% load mathfilters %}
+{% load latlongToHuman %}
 {% block title %}{{ klub.ime }}{% endblock title %}
 {% block head %}
     <style>
@@ -51,11 +52,11 @@
             <div class="card">
                 <div class="card-header">
                     <img class="rounded-circle img-fluid center-block"
-                         src="{{ klub.logo }}">
+                         src="{{ klub.logo.url }}">
                 </div>
                 <div class="card-body">
                     <section class="d-flex justify-content-center profile-entries">
-                        <i class="fas fa-map-pin fa-lg"></i>&nbsp;&nbsp;&nbsp;{{ klub.location }}
+                        <i class="fas fa-map-pin fa-lg"></i>&nbsp;&nbsp;&nbsp;{{ klub.location|latlongHuman }}
                     </section>
                     <section class="d-flex justify-content-center profile-entries">
                         {% if klub.homepage != None %}
@@ -98,8 +99,10 @@
             <div class="card border border-dark">
                 <div class="card-header border border-dark header-image">
                     <div style="position: relative">
-                        <img class="img-fluid" src="{{ klub.header_images.0 }}">
-                        {% with klub.header_images|length|sub:1 as image_count %}
+                        {% with klub.headerSlike.all|first as headerSlikePrva %}
+                            <img class="img-fluid" src="{{ headerSlikePrva.slika.url }}" alt="{{ headerSlikePrva.opis }}">
+                        {% endwith %}
+                        {% with klub.headerSlike.count|sub:1 as image_count %}
                             {% if image_count > 0 %}
                                 <div class="image-count">
                                     še {{ image_count }}

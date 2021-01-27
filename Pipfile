@@ -17,6 +17,7 @@ django = "~=2.2"
 django-redis-cache = "*"
 nox = "*"
 flake8 = "*"
+geopy = "*"
 
 [requires]
 python_version = "3.8"

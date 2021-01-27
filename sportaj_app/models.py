@@ -49,7 +49,7 @@ class Klub(models.Model):
 class SlikaKluba(models.Model):
     naslov = models.CharField(max_length=512)
     opis = models.CharField(max_length=4096)
-    slike = models.FileField(upload_to="header_slike/")
+    slika = models.FileField(upload_to="header_slike/")
 
     klub = models.ForeignKey(Klub, on_delete=models.CASCADE, related_name="slike")
 

@@ -17,6 +17,7 @@ class KlubView(TemplateView):
 
         try:
             context["klub"] = models.Klub.objects.get(slug=kwargs["slug"])
-        except models.Klub.DoesNotExist:
+            context["headerSlike"] = models.SlikaKluba.objects.filter(klub=context["klub"])
+        except models.Klub.DoesNotExist or not context["headerSlike"]:
             raise Http404("Klub ne obstaja")
         return context
