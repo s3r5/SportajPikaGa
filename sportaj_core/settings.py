@@ -46,8 +46,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django.contrib.gis",
-    "world",
     "static_precompiler",
 ]
 
@@ -85,14 +83,7 @@ WSGI_APPLICATION = "sportaj_core.wsgi.application"
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.contrib.gis.db.backends.postgis",
-        "NAME": env("DATABASE_NAME", default=None),
-        "USER": env("DATABASE_USER", default=None),
-        "PASSWORD": env("POSTGRES_PASSWORD", default=None),
-        "HOST": env("DATABASE_HOST", default="localhost"),
-        "PORT": env("DATABASE_PORT", default="5432"),
-    }
+    "default": env.db() if env("DATABASE_URL", default=None) else {}
 }
 
 CACHES = {
@@ -167,6 +158,9 @@ STATIC_PRECOMPILER_COMPILERS = (
 )
 
 LOCATION_FIELD = {
+    'map.provider': 'google',
+    'search.provider': 'google',
+
     "provider.google.api": "//maps.google.com/maps/api/js?sensor=false",
     "provider.google.api_key": env("GOOGLE_API_KEY", default=None),
     "provider.google.api_libraries": "",

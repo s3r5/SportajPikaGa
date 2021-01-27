@@ -16,7 +16,7 @@ def get_header_images_default():
 
 
 def get_location_city_default():
-    return "Maribor"
+    return "46.55472,15.64667"
 
 
 class Klub(models.Model):
@@ -33,7 +33,6 @@ class Klub(models.Model):
         default=get_header_images_default,
     )
 
-    city = models.CharField(max_length=1023, default=get_location_city_default())
     location = PlainLocationField(
         based_fields=["city"], default=get_location_city_default()
     )
