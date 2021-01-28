@@ -3,6 +3,14 @@
 {% load latlongToHuman %}
 {% block title %}{{ klub.ime }}{% endblock title %}
 {% block head %}
+    <link rel="shortcut icon" type="{{ klub.logo.content_type }}" href="{{ klub.logo.url }}"/>
+{% endblock head %}
+{% block extraOg%}
+    <meta property="og:image" content="{{ klub.logo.url }}" />
+    <meta property="og:image:type" content="{{ klub.logo.content_type }}" />
+    <meta property="og:image:alt" content="Logotip kluba {{ klub.ime }}" />
+{% endblock extraOg %}
+{% block styling %}
     <style>
         @media (min-width: 1500px) {
             .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
@@ -49,14 +57,14 @@
             margin-right: 1em;
         }
     </style>
-{% endblock head %}
+{% endblock styling %}
 {% block main %}
     <div class="row pad-top">
         <div class="col col-md-4">
             <div class="card">
                 <div class="card-header">
                     <img class="rounded-circle img-fluid center-block"
-                         src="{{ klub.logo.url }}">
+                         src="{{ klub.logo.url }}" alt="Logotip kluba {{ klub.ime }}">
                 </div>
                 <div class="card-body">
                     <section class="d-flex justify-content-center profile-entries">

@@ -10,23 +10,29 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <title>{% block title %}Sportaj.ga{% endblock title %}</title>
+    {% block head %}{% endblock head %}
 
     <!--region OpenGraph -->
     <meta property="og:title" content="{% block ogTitle %}Sportaj.ga{% endblock ogTitle %}"/>
     <meta property="og:description" content="{% block ogDescription %}Sportaj.ga{% endblock ogDescription %}"/>
     <meta property="og:url"
           content="{% block ogUrl %}{{ request.build_absolute_uri }}{% endblock ogUrl %}"/>
+    <meta property="og:locale" content="sl_SI" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:locale:alternate" content="en_US" />
+    {% block extraOg %}{% endblock extraOg %}
     <!--endregion OpenGraph -->
 
     <!--region Twitter Card -->
     <meta name="twitter:creator" content="@quantumlytngld"/>
+    {% block extraTwitter %}{% endblock extraTwitter %}
     <!--endregion Twitter Card -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
           integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
           crossorigin="anonymous"/>
     <link rel="stylesheet" href="{% static "assets/css/argon.min.css" %}">
-    {% block head %}{% endblock head %}
+    {% block styling %}{% endblock styling %}
     {% analytical_head_bottom %}
 </head>
 <body>
