@@ -70,7 +70,9 @@
             var calendarEl = document.getElementById('calendar');
             var calendarInit = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'timeGridWeek',
-                locale: 'si'
+                titleFormat: {
+                    hour12: false
+                }
             });
 
             window.calendar = calendarInit;
