@@ -68,10 +68,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
+            var calendarInit = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'timeGridWeek',
-                timeFormat: 'H(:mm)'
+                locale: 'si'
             });
+
+            window.calendar = calendarInit;
+
             calendar.render();
         });
     </script>
