@@ -1,10 +1,12 @@
 {% extends 'sportaj/base.html' %}
 {% load mathfilters %}
 {% load latlongToHuman %}
-{% block title %}{{ klub.ime }}{% endblock title %}
+{% block title %}{{ klub.ime }} - Sportaj.ga{% endblock title %}
 {% block head %}
     <link rel="shortcut icon" href="{{ klub.logo.url }}"/>
 {% endblock head %}
+{% block ogTitle %}{{ klub.ime }} - Sportaj.ga{% endblock ogTitle %}
+{% block ogDescription %}{{ klub.opis }}{% endblock ogDescription %}
 {% block extraOg %}
     <meta property="og:image" content="{{ klub.logo.url }}"/>
     <meta property="og:image:alt" content="Logotip kluba {{ klub.ime }}"/>
