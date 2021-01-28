@@ -164,9 +164,10 @@ LOCATION_FIELD = {
     'search.provider': 'google',
 
     "provider.google.api": "//maps.google.com/maps/api/js?sensor=false",
-    "provider.google.api_key": env("GOOGLE_API_KEY", default=None),
+    "provider.google.api_key": env("GOOGLE_MAPS_API_KEY", default=None),
     "provider.google.api_libraries": "",
     "provider.google.map.type": "ROADMAP",
 }
 
-GOOGLE_ANALYTICS_GTAG_PROPERTY_ID = env("GOOGLE_ANALYTICS_GTAG_PROPERTY_ID", default="")
+GOOGLE_ANALYTICS_GTAG_PROPERTY_ID = env("GOOGLE_ANALYTICS_GTAG_PROPERTY_ID", default=None)
+GOOGLE_CAL_API_KEY = env("GOOGLE_CAL_API_KEY", default=None)

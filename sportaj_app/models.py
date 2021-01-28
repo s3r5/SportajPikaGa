@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
 from location_field.models.plain import PlainLocationField
 
 from taggit.managers import TaggableManager
@@ -30,6 +29,8 @@ class Klub(models.Model):
     location = PlainLocationField(
         based_fields=["city"], default=get_location_city_default()
     )
+
+    urnik = models.CharField(max_length= 512, null=True, blank=True)
 
     mail = models.EmailField(null=True, blank=True)
     homepage = models.URLField(null=True, blank=True)
