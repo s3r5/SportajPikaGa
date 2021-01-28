@@ -3,6 +3,7 @@
 {% load latlongToHuman %}
 {% block title %}{{ klub.ime }} - Sportaj.ga{% endblock title %}
 {% block head %}
+    <meta name="description" content="{{ klub.opis }}"/>
     <link rel="shortcut icon" href="{{ klub.logo.url }}"/>
 {% endblock head %}
 {% block ogTitle %}{{ klub.ime }} - Sportaj.ga{% endblock ogTitle %}
