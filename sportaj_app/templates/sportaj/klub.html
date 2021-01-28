@@ -3,11 +3,11 @@
 {% load latlongToHuman %}
 {% block title %}{{ klub.ime }}{% endblock title %}
 {% block head %}
-    <link rel="shortcut icon" type="{{ klub.logo.content_type }}" href="{{ klub.logo.url }}"/>
+    <link rel="shortcut icon" type="{{ klub.logo.file.content_type }}" href="{{ klub.logo.url }}"/>
 {% endblock head %}
 {% block extraOg%}
     <meta property="og:image" content="{{ klub.logo.url }}" />
-    <meta property="og:image:type" content="{{ klub.logo.content_type }}" />
+    <meta property="og:image:type" content="{{ klub.logo.file.content_type }}" />
     <meta property="og:image:alt" content="Logotip kluba {{ klub.ime }}" />
 {% endblock extraOg %}
 {% block styling %}
