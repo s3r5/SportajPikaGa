@@ -5,9 +5,9 @@
 {% block head %}
     <link rel="shortcut icon" href="{{ klub.logo.url }}"/>
 {% endblock head %}
-{% block extraOg%}
-    <meta property="og:image" content="{{ klub.logo.url }}" />
-    <meta property="og:image:alt" content="Logotip kluba {{ klub.ime }}" />
+{% block extraOg %}
+    <meta property="og:image" content="{{ klub.logo.url }}"/>
+    <meta property="og:image:alt" content="Logotip kluba {{ klub.ime }}"/>
 {% endblock extraOg %}
 {% block styling %}
     <style>
@@ -57,6 +57,22 @@
         }
     </style>
 {% endblock styling %}
+{% block scripts %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css"
+          integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js"
+            integrity="sha256-rPPF6R+AH/Gilj2aC00ZAuB2EKmnEjXlEWx5MkAp7bw=" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'timeGridWeek'
+            });
+            calendar.render();
+        });
+    </script>
+{% endblock scripts %}
 {% block main %}
     <div class="row pad-top">
         <div class="col col-md-4">
@@ -71,7 +87,7 @@
                     </section>
                     <section class="d-flex justify-content-center profile-entries">
                         {% if klub.homepage != None %}
-                             <button class="btn btn-dribbble btn-icon-only rounded-circle"
+                            <button class="btn btn-dribbble btn-icon-only rounded-circle"
                                     onclick="window.open('{{ klub.homepage }}', '_blank')">
                                 <span class="btn-inner--icon">
                                     <i class="fab fa-globe"></i>
@@ -111,7 +127,8 @@
                 <div class="card-header border border-dark header-image">
                     <div style="position: relative">
                         {% with headerSlike.all|first as headerSlikePrva %}
-                            <img class="img-fluid" src="{{ headerSlikePrva.slika.url }}" alt="{{ headerSlikePrva.opis }}">
+                            <img class="img-fluid" src="{{ headerSlikePrva.slika.url }}"
+                                 alt="{{ headerSlikePrva.opis }}">
                         {% endwith %}
                         {% with headerSlike.count|sub:1 as image_count %}
                             {% if image_count > 0 %}
@@ -146,9 +163,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row align-items-end pad-top">
+                    <div class="row align-items-center pad-top">
                         <div class="col">
                             <p>{{ klub.opis }}</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-end pad-top">
+                        <div class="col">
+                            <div id='calendar'></div>
                         </div>
                     </div>
                 </div>
