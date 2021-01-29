@@ -1,6 +1,7 @@
 {% extends 'sportaj/base.html' %}
 {% load mathfilters %}
 {% load latlongToHuman %}
+
 {% block title %}{{ klub.ime }} - Sportaj.ga{% endblock title %}
 {% block head %}
     <meta name="description" content="{{ klub.opis }}"/>
@@ -12,6 +13,9 @@
     <meta property="og:image" content="{{ klub.logo.url }}"/>
     <meta property="og:image:alt" content="Logotip kluba {{ klub.ime }}"/>
 {% endblock og_extra %}
+{% block twitter_extra %}
+    <meta name="twitter:image:alt" content="Logotip kluba {{ klub.ime }}"/>
+{% endblock twitter_extra %}
 {% block styling %}
     <style>
         @media (min-width: 1500px) {

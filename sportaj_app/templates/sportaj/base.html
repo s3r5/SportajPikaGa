@@ -17,14 +17,15 @@
     <meta property="og:description" content="{% block og_description %}Sportaj.ga{% endblock og_description %}"/>
     <meta property="og:url"
           content="{% block og_url %}{{ request.build_absolute_uri }}{% endblock og_url %}"/>
-    <meta property="og:locale" content="sl_SI" />
-    <meta property="og:locale:alternate" content="en_GB" />
-    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale" content="sl_SI"/>
+    <meta property="og:locale:alternate" content="en_GB"/>
+    <meta property="og:locale:alternate" content="en_US"/>
     {% block og_extra %}{% endblock og_extra %}
     <!--endregion OpenGraph -->
 
     <!--region Twitter Card -->
     <meta name="twitter:creator" content="@quantumlytngld"/>
+    <meta name="twitter:site" content="@SportajGa"/>
     {% block twitter_extra %}{% endblock twitter_extra %}
     <!--endregion Twitter Card -->
 
