@@ -32,6 +32,7 @@ ALLOWED_HOSTS = env("ALLOWED_HOSTS", default=[])
 
 INSTALLED_APPS = [
     "sportaj_app",
+    "pwa",
     "taggit",
     "analytical",
     "mathfilters",
@@ -158,6 +159,10 @@ STATICFILES_FINDERS = [
     "static_precompiler.finders.StaticPrecompilerFinder",
 ]
 
+STATICFILES_DIRS = [
+    STATIC_ROOT
+]
+
 STATIC_PRECOMPILER_COMPILERS = (
     (
         "static_precompiler.compilers.libsass.SCSS",
@@ -190,3 +195,12 @@ LOCATION_FIELD = {
 
 GOOGLE_ANALYTICS_GTAG_PROPERTY_ID = env("GOOGLE_ANALYTICS_GTAG_PROPERTY_ID", default=None)
 GOOGLE_CAL_API_KEY = env("GOOGLE_CAL_API_KEY", default=None)
+
+PWA_APP_DEBUG_MODE = DEBUG
+
+PWA_APP_NAME = "Sportaj Ga"
+PWA_APP_DISPLAY = "standalone"
+PWA_APP_SCOPE = "/"
+PWA_APP_ORIENTATION = "any"
+PWA_APP_START_URL = "/"
+PWA_APP_LANG = "sl-SI"
