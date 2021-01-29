@@ -13,19 +13,19 @@
     {% block head %}{% endblock head %}
 
     <!--region OpenGraph -->
-    <meta property="og:title" content="{% block ogTitle %}Sportaj.ga{% endblock ogTitle %}"/>
-    <meta property="og:description" content="{% block ogDescription %}Sportaj.ga{% endblock ogDescription %}"/>
+    <meta property="og:title" content="{% block og_title %}Sportaj.ga{% endblock og_title %}"/>
+    <meta property="og:description" content="{% block og_description %}Sportaj.ga{% endblock og_description %}"/>
     <meta property="og:url"
-          content="{% block ogUrl %}{{ request.build_absolute_uri }}{% endblock ogUrl %}"/>
+          content="{% block og_url %}{{ request.build_absolute_uri }}{% endblock og_url %}"/>
     <meta property="og:locale" content="sl_SI" />
     <meta property="og:locale:alternate" content="en_GB" />
     <meta property="og:locale:alternate" content="en_US" />
-    {% block extraOg %}{% endblock extraOg %}
+    {% block og_extra %}{% endblock og_extra %}
     <!--endregion OpenGraph -->
 
     <!--region Twitter Card -->
     <meta name="twitter:creator" content="@quantumlytngld"/>
-    {% block extraTwitter %}{% endblock extraTwitter %}
+    {% block twitter_extra %}{% endblock twitter_extra %}
     <!--endregion Twitter Card -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -50,6 +50,7 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 <script src="{% static "assets/js/argon.min.js" %}"></script>
+{% block body_bottom %}{% endblock body_bottom %}
 {% analytical_body_bottom %}
 </body>
 </html>
