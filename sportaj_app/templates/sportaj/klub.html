@@ -12,6 +12,8 @@
 {% block og_extra %}
     <meta property="og:image" content="{{ klub.logo.url }}"/>
     <meta property="og:image:alt" content="Logotip kluba {{ klub.ime }}"/>
+    <meta property="og:image:width" content="128"/>
+    <meta property="og:image:height" content="128"/>
 {% endblock og_extra %}
 {% block twitter_card %}summary_large_image{% endblock twitter_card %}
 {% block twitter_extra %}
@@ -71,7 +73,7 @@
             <div class="card">
                 <div class="card-header">
                     <img class="rounded-circle img-fluid center-block"
-                         src="{{ klub.logo.url }}" alt="Logotip kluba {{ klub.ime }}">
+                         src="{{ klub.logo.url }}" alt="Logotip kluba {{ klub.ime }}" height="128" width="128">
                 </div>
                 <div class="card-body">
                     <section class="d-flex justify-content-center profile-entries">

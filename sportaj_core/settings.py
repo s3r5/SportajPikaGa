@@ -108,7 +108,7 @@ if DEBUG:
 
 INTERNAL_IPS = [
 	"127.0.0.1",
-] + env.list("DEBUG_IPS")
+] + env.list("DEBUG_IPS", default=[])
 
 
 # Password validation

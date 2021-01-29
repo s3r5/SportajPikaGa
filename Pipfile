@@ -20,6 +20,7 @@ flake8 = "*"
 geopy = "*"
 django-debug-toolbar = "*"
 django-pwa = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"
