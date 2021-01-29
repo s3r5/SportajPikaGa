@@ -60,35 +60,6 @@
         }
     </style>
 {% endblock styling %}
-{% block scripts %}
-    {% if klub.urnik %}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css"
-              integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js"
-                integrity="sha256-rPPF6R+AH/Gilj2aC00ZAuB2EKmnEjXlEWx5MkAp7bw=" crossorigin="anonymous"></script>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var calendarEl = document.getElementById('calendar');
-                var calendarInit = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'timeGridWeek',
-                    locale: 'sl',
-                    googleCalendarApiKey: '{{ GOOGLE_CAL_API_KEY }}',
-                    events: {
-                        googleCalendarId: '{{ klub.urnik }}'
-                    }
-                    /* titleFormat: {
-                        hour12: false
-                    } */
-                });
-
-                window.calendar = calendarInit;
-
-                calendar.render();
-            });
-        </script>
-    {% endif %}
-{% endblock scripts %}
 {% block main %}
     <div class="row pad-top">
         <div class="col col-md-4">
@@ -184,15 +155,18 @@
                             <p>{{ klub.opis }}</p>
                         </div>
                     </div>
-                    {% if klub.urnik %}
-                        <div class="row align-items-end pad-top">
-                            <div class="col">
-                                <div id='calendar'></div>
-                            </div>
+                    <div class="row align-items-end pad-top">
+                        <div class="col">
+                            <div id='calendar'></div>
                         </div>
-                    {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    {% with klub.urnik as klubUrnik %}
+        {% if klubUrnik %}
+            {% include "components/calendar.html" with klubUrnik=klubUrnik GOOGLE_CAL_API_KEY=GOOGLE_CAL_API_KEY %}
+        {% endif %}
+    {% endwith %}
 {% endblock main %}
