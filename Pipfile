@@ -18,6 +18,8 @@ django-redis-cache = "*"
 nox = "*"
 flake8 = "*"
 geopy = "*"
+django-debug-toolbar = "*"
+django-pwa = "*"
 
 [requires]
 python_version = "3.8"

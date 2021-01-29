@@ -28,9 +28,6 @@ if os.path.isfile(os.environ["ENV_FILE"]):
 SECRET_KEY = env("SECRET_KEY", default="NOT_NEEDED_FOR_DOCKER_BUILDS")
 ALLOWED_HOSTS = env("ALLOWED_HOSTS", default=[])
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG", default=True)
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -91,6 +88,26 @@ CACHES = {
         "LOCATION": env("REDIS_URL", default="127.0.0.1:6379"),
     }
 }
+
+#############
+#           #
+#   DEBUG   #
+#           #
+#############
+
+DEBUG = env("DEBUG", default=True)
+
+# Debug Toolbar
+if DEBUG:
+	MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
+	INSTALLED_APPS += [
+		"debug_toolbar"
+	]
+
+INTERNAL_IPS = [
+	"127.0.0.1",
+] + env.list("DEBUG_IPS")
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
