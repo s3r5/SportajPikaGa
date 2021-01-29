@@ -166,7 +166,7 @@
     </div>
     {% with klub.urnik as klubUrnik %}
         {% if klubUrnik %}
-            {% include "components/calendar.html" with klubUrnik=klubUrnik GOOGLE_CAL_API_KEY=GOOGLE_CAL_API_KEY %}
+            {% include "sportaj/components/calendar.html" with klubUrnik=klubUrnik GOOGLE_CAL_API_KEY=GOOGLE_CAL_API_KEY %}
         {% endif %}
     {% endwith %}
 {% endblock main %}
