@@ -59,7 +59,7 @@ class SlikaKluba(models.Model):
 
         image = Image.open(self.slika.path).convert("RGB")
 
-        image.save(os.path.splitext(self.slika.path)[0] + ".webp", "webp", lossless=False, quality=25)
+        image.save(os.path.splitext(self.slika.path)[0] + ".webp", "webp", lossless=False, quality=50)
 
         self.slika = os.path.splitext(self.slika.name)[0] + ".webp"
         super(SlikaKluba, self).save(*args, **kwargs)
