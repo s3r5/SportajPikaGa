@@ -8,6 +8,9 @@ class SlikaKlubaAdmin(admin.StackedInline):
 
 @admin.register(Klub)
 class KlubAdmin(admin.ModelAdmin):
+    exclude = [
+        "location_friendly"
+    ]
     inlines = [
         SlikaKlubaAdmin
     ]

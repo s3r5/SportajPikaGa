@@ -2,8 +2,12 @@ from django.db import models
 
 import os
 from PIL import Image
+from geopy.geocoders import Nominatim
 from location_field.models.plain import PlainLocationField
 from taggit.managers import TaggableManager
+
+
+geolocator = Nominatim(user_agent="sportaj.ga")
 
 
 def get_header_images_default(): list([])
@@ -21,9 +25,8 @@ class Klub(models.Model):
 
     logo = models.ImageField(upload_to="klub_logo/", blank=True)
 
-    location = PlainLocationField(
-        based_fields=["city"], default=get_location_city_default()
-    )
+    location = PlainLocationField(default=get_location_city_default())
+    location_friendly = models.CharField(max_length=4096, null=True, blank=True)
 
     urnik = models.CharField(max_length=512, null=True, blank=True)
 
@@ -38,6 +41,13 @@ class Klub(models.Model):
     class Meta:
         verbose_name = "Klub"
         verbose_name_plural = "Klubi"
+
+    def save(self, *args, **kwargs):
+        super(Klub, self).save(*args, **kwargs)
+
+        self.location_friendly = geolocator.reverse(self.location).address
+
+        super(Klub, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.ime
