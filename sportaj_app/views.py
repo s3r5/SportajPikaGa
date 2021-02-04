@@ -31,7 +31,9 @@ class ZemljevidView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        klubi = models.Klub.objects.all()
+
+        ime = self.request.GET.get("ime", "")
+        klubi = (models.Klub.objects.all(), models.Klub.objects.filter(ime__icontains=ime))[ime != ""]
 
         context["GOOGLE_SEARCH_MAPS_API_KEY"] = settings.GOOGLE_SEARCH_MAPS_API_KEY
         context["DEFAULT_LATLONG"] = models.get_location_city_default()
