@@ -43,7 +43,7 @@
 <body>
 {% analytical_body_top %}
 
-<main class="container">
+<main class="{% block main_class %}container{% endblock main_class %}">
     {% block main %}{% endblock main %}
 </main>
 
