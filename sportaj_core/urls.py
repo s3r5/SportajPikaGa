@@ -22,9 +22,10 @@ from django.conf.urls.static import static
 import sportaj_app.views
 
 urlpatterns = [
-                  path("", sportaj_app.views.HomeView.as_view(), name="home"),
+                  path("", sportaj_app.views.HomeView.as_view(), name = "home"),
                   path("", include('pwa.urls')),
-                  path("klub/<slug>", cache_page(60 * 15)(sportaj_app.views.KlubView.as_view()), name="klub"),
+                  path("zemljevid/", sportaj_app.views.ZemljevidView.as_view(), name = "zemljevid"),
+                  path("klub/<slug>", cache_page(60 * 15)(sportaj_app.views.KlubView.as_view()), name = "klub"),
                   path("admin/", admin.site.urls),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

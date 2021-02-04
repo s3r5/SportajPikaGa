@@ -1,0 +1,38 @@
+{% extends 'sportaj/base.html' %}
+
+{% block styling %}
+    <style type="text/css">
+        #gMap {
+            height: 100%;
+        }
+    </style>
+{% endblock styling %}
+{% block scripts %}
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script defer
+            src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_SEARCH_MAPS_API_KEY }}&callback=initGMap">
+    </script>
+    <script>
+        let gMap;
+
+        function initGMap() {
+            const [lat, lng] = '{{ DEFAULT_LATLONG }}'.split(',').map(Number);
+            gMap = new google.maps.Map(document.getElementById('gMap'), {
+                center: {lat, lng},
+                zoom: 8,
+            });
+            {% for pin in mapa %}
+            new google.maps.Marker({
+                position: {lat: Number("{{ pin.latlong.0 }}"), lng: Number("{{ pin.latlong.1 }}")},
+                map: gMap,
+                title: '{{ pin.name }}'
+            });
+            {% endfor %}
+        }
+    </script>
+{% endblock scripts %}
+
+{% block main %}
+    <!-- TODO: odstrani magična števila -->
+    <div id="gMap" style="width:500px;height:500px;"></div>
+{% endblock main %}
