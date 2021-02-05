@@ -21,13 +21,23 @@
                 center: {lat, lng},
                 zoom: 8,
             });
-            {% for pin in mapa %}
-            new google.maps.Marker({
-                position: {lat: Number("{{ pin.latlong.0 }}"), lng: Number("{{ pin.latlong.1 }}")},
-                map: gMap,
-                title: '{{ pin.name }}'
-            });
-            {% endfor %}
+
+            const infowindow = new google.maps.InfoWindow();
+
+            function createPin(title, position) {
+                const marker = new google.maps.Marker({
+                    position,
+                    map: gMap,
+                    title
+                });
+
+                marker.addListener("click", () => {
+                    infowindow.setContent(title);
+                    infowindow.open(map, marker);
+                });
+            }
+
+            {% for pin in mapa %}createPin('{{ pin.ime }}', {lat: Number('{{ pin.latlong.0 }}'), lng: Number('{{ pin.latlong.1 }}')});{% endfor %}
         }
     </script>
 {% endblock scripts %}
