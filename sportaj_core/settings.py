@@ -159,10 +159,6 @@ STATICFILES_FINDERS = [
     "static_precompiler.finders.StaticPrecompilerFinder",
 ]
 
-STATICFILES_DIRS = [
-    STATIC_ROOT
-]
-
 STATIC_PRECOMPILER_COMPILERS = (
     (
         "static_precompiler.compilers.libsass.SCSS",
