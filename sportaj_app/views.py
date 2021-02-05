@@ -36,7 +36,7 @@ class ZemljevidView(TemplateView):
         klubi = (models.Klub.objects.all(), models.Klub.objects.filter(ime__icontains=ime))[ime != ""]
 
         context["GOOGLE_SEARCH_MAPS_API_KEY"] = settings.GOOGLE_SEARCH_MAPS_API_KEY
-        context["DEFAULT_LATLONG"] = models.get_location_city_default()
+        context["DEFAULT_LATLONG"] = models.get_location_city_default().split(",")
         context["klubi"] = [
             dict(
                 latlong=k.location.split(","),

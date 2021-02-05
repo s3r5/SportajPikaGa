@@ -20,10 +20,9 @@
         let gMap;
 
         function initGMap() {
-            const [lat, lng] = '{{ DEFAULT_LATLONG }}'.split(',').map(Number);
             gMap = new google.maps.Map(document.getElementById('gMap'), {
-                center: {lat, lng},
-                zoom: 8,
+                center: {lat: Number('{{ DEFAULT_LATLONG.0 }}'), lng: Number('{{ DEFAULT_LATLONG.1 }}')},
+                zoom: 4,
             });
 
             const infowindow = new google.maps.InfoWindow();
