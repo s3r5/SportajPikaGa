@@ -1,6 +1,9 @@
 {% extends 'sportaj/base.html' %}
 {% load latlongToHuman %}
 
+{% block title %}Zemljevid Klubov - Sportaj.ga{% endblock title %}
+{% block og_title %}Zemljevid Klubov - Sportaj.ga{% endblock og_title %}
+
 {% block styling %}
     <style type="text/css">
         #gMap {
@@ -68,9 +71,9 @@
                     <ul class="list-group list-group-flush">
                         {% for klub in klubi %}
                             <li class="list-group-item disabled">
-                            <!-- TODO: Fix broken link (well you can't even click it)-->
+                                <!-- TODO: Fix broken link (well you can't even click it)-->
                                 <a href="https://sportaj.ga/klub/{{ klub.slug }}"
-                                                   target="_blank">
+                                   target="_blank">
                                     <div class="media">
                                         <div class="pull-left" style="padding-right: 10px;">
                                             <img class="rounded-circle img-fluid"
