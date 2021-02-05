@@ -115,16 +115,14 @@
                                                  width="64">
                                         </div>
                                         <div class="media-body">
-                                            <h4 class="media-heading">
-                                                {{ klub.ime }}
-                                                <small>
-                                                    {% if klub.location %}
-                                                        {{ klub.location }}
-                                                    {% else %}
-                                                        {{ klub.latlong.0|add:","|add:klub.latlong.1|latlongHuman }}
-                                                    {% endif %}
-                                                </small>
-                                            </h4>
+                                            <h4 class="media-heading">{{ klub.ime }}</h4>
+                                            <div class="media-content">
+                                                {% if klub.location %}
+                                                    {{ klub.location }}
+                                                {% else %}
+                                                    {{ klub.latlong.0|add:","|add:klub.latlong.1|latlongHuman }}
+                                                {% endif %}
+                                            </div>
                                         </div>
                                     </div>
                                 </a>
