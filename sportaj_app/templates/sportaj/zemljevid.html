@@ -23,7 +23,7 @@
         function initGMap() {
             gMap = new google.maps.Map(document.getElementById('gMap'), {
                 center: {lat: Number('{{ DEFAULT_LATLONG.0 }}'), lng: Number('{{ DEFAULT_LATLONG.1 }}')},
-                zoom: 4,
+                zoom: 10,
             });
 
             const infowindow = new google.maps.InfoWindow();
