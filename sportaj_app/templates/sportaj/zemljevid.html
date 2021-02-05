@@ -12,6 +12,7 @@
     </style>
 {% endblock styling %}
 {% block scripts %}
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script defer
             src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_SEARCH_MAPS_API_KEY }}&callback=initGMap&language=sl&region=SI">
@@ -26,8 +27,40 @@
             });
 
             const infowindow = new google.maps.InfoWindow();
+            const locationButton = document.createElement("button");
 
-            function createPin(title, position) {
+            locationButton.textContent = "Moja Lokacija";
+            locationButton.classList.add("custom-map-control-button");
+            gMap.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+
+            locationButton.addEventListener('click', () => {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            const pos = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude,
+                            };
+                            gMap.center(pos);
+                        },
+                        () => {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Geolokacijska Napaka',
+                                text: 'Oprostite nismo uspeli dobiti vaše lokacije.'
+                            });
+                        }
+                    );
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Geolokacijska Napaka',
+                        text: 'Vaš brskalnik ne podpira geolokacije.'
+                    });
+                }
+            });
+
+            const createPin = (title, position) => {
                 const marker = new google.maps.Marker({
                     position,
                     map: gMap,
@@ -36,7 +69,7 @@
 
                 marker.addListener("click", () => {
                     infowindow.setContent(title);
-                    infowindow.open(map, marker);
+                    infowindow.open(gMap, marker);
                 });
             }
 
