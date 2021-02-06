@@ -9,6 +9,10 @@
         #gMap {
             height: 100%;
         }
+
+        #address-pin {
+            margin-right: 1em;
+        }
     </style>
 {% endblock styling %}
 {% block scripts %}
@@ -117,6 +121,7 @@
                                         <div class="media-body">
                                             <h4 class="media-heading">{{ klub.ime }}</h4>
                                             <div class="media-content">
+                                                <i id="address-pin" class="fas fa-map-pin fa-lg"></i>
                                                 {% if klub.location %}
                                                     {{ klub.location }}
                                                 {% else %}
