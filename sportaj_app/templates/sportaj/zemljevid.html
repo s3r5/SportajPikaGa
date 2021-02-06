@@ -10,8 +10,12 @@
             height: 100%;
         }
 
-        #address-pin {
+        .address-pin {
             margin-right: 1em;
+        }
+
+        ul.list-group > li.list-group-item:hover {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         }
     </style>
 {% endblock styling %}
@@ -105,9 +109,9 @@
         <div class="row">
             <div class="col col-md-4">
                 <div>
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group">
                         {% for klub in klubi %}
-                            <li class="list-group-item disabled">
+                            <li class="list-group-item">
                                 <!-- TODO: Fix broken link (well you can't even click it)-->
                                 <a href="https://sportaj.ga/klub/{{ klub.slug }}"
                                    target="_blank">
@@ -121,12 +125,14 @@
                                         <div class="media-body">
                                             <h4 class="media-heading">{{ klub.ime }}</h4>
                                             <div class="media-content">
-                                                <i id="address-pin" class="fas fa-map-pin fa-lg"></i>
-                                                {% if klub.location %}
-                                                    {{ klub.location }}
-                                                {% else %}
-                                                    {{ klub.latlong.0|add:","|add:klub.latlong.1|latlongHuman }}
-                                                {% endif %}
+                                                <i class="fas fa-map-pin fa-lg address-pin"></i>
+                                                <div>
+                                                    {% if klub.location %}
+                                                        {{ klub.location }}
+                                                    {% else %}
+                                                        {{ klub.latlong.0|add:","|add:klub.latlong.1|latlongHuman }}
+                                                    {% endif %}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
