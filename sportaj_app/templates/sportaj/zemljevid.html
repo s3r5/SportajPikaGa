@@ -1,8 +1,8 @@
 {% extends 'sportaj/base.html' %}
 {% load latlongToHuman %}
 
-{% block title %}Zemljevid Klubov - Sportaj.ga{% endblock title %}
-{% block og_title %}Zemljevid Klubov - Sportaj.ga{% endblock og_title %}
+{% block title %}Zemljevid klubov - Sportaj.ga{% endblock title %}
+{% block og_title %}Zemljevid klubov - Sportaj.ga{% endblock og_title %}
 
 {% block styling %}
     <style type="text/css">
@@ -55,15 +55,15 @@
                         () => {
                             Swal.fire({
                                 icon: 'error',
-                                title: 'Geolokacijska Napaka',
-                                text: 'Oprostite nismo uspeli dobiti vaše lokacije.'
+                                title: 'Geolokacijska napaka',
+                                text: 'Oprostite, nismo uspeli dobiti vaše lokacije.'
                             });
                         }
                     );
                 } else {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Geolokacijska Napaka',
+                        title: 'Geolokacijska napaka',
                         text: 'Vaš brskalnik ne podpira geolokacije.'
                     });
                 }
@@ -99,7 +99,7 @@
             <div class="container-body">
                 <div class="row align-items-center py-4">
                     <div class="col">
-                        <h6 class="h2 text-white">Zemljevid Klubov</h6>
+                        <h6 class="h2 text-white">Zemljevid klubov</h6>
                     </div>
                 </div>
             </div>
@@ -112,7 +112,6 @@
                     <ul class="list-group">
                         {% for klub in klubi %}
                             <li class="list-group-item">
-                                <!-- TODO: Fix broken link (well you can't even click it)-->
                                 <a href="https://sportaj.ga/klub/{{ klub.slug }}"
                                    target="_blank">
                                     <div class="media">
@@ -126,13 +125,13 @@
                                             <h4 class="media-heading">{{ klub.ime }}</h4>
                                             <div class="media-content">
                                                 <i class="fas fa-map-pin fa-lg address-pin"></i>
-                                                <div>
+                                                <span>
                                                     {% if klub.location %}
                                                         {{ klub.location }}
                                                     {% else %}
                                                         {{ klub.latlong.0|add:","|add:klub.latlong.1|latlongHuman }}
                                                     {% endif %}
-                                                </div>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
