@@ -8,6 +8,7 @@
     <style type="text/css">
         #gMap {
             height: 100%;
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
         }
 
         .address-pin {
@@ -28,11 +29,31 @@
     <script>
         let gMap;
 
+        const getCookie = (name) => {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return undefined;
+        }
+
         function initGMap() {
             gMap = new google.maps.Map(document.getElementById('gMap'), {
                 center: {lat: Number('{{ DEFAULT_LATLONG.0 }}'), lng: Number('{{ DEFAULT_LATLONG.1 }}')},
-                zoom: 10,
+                zoom: 11,
             });
+
+            let locCookie = getCookie('lokacija');
+            if (locCookie) {
+                let latlng = locCookie.split(',').map(Number);
+
+                gMap.setCenter({
+                    lat: latlng[0],
+                    lng: latlng[1]
+                });
+
+                delete locCookie;
+                delete latlng;
+            }
 
             const infowindow = new google.maps.InfoWindow();
             const locationButton = document.createElement("button");
@@ -46,11 +67,9 @@
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(
                         (position) => {
-                            const pos = {
-                                lat: position.coords.latitude,
-                                lng: position.coords.longitude,
-                            };
-                            gMap.setCenter(pos);
+                            const now = new Date(Date.now() + 86400 * 1000);
+                            document.cookie = `lokacija=${position.coords.latitude},${position.coords.longitude}; expires=${now.toUTCString()}; path=/zemljevid/`;
+                            location.reload();
                         },
                         () => {
                             Swal.fire({
