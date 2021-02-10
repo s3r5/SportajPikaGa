@@ -45,8 +45,11 @@ class Klub(models.Model):
     def save(self, *args, **kwargs):
         super(Klub, self).save(*args, **kwargs)
 
-        self.location_friendly = geolocator.reverse(self.location).address
+        logo = Image.open(self.logo.path).convert("RGB")
+        logo.save(os.path.splitext(self.logo.path)[0] + ".webp", "webp", lossless=False, quality=75)
 
+        self.logo = os.path.splitext(self.logo.name)[0] + ".webp"
+        self.location_friendly = geolocator.reverse(self.location).address
         super(Klub, self).save(*args, **kwargs)
 
     def __str__(self):
@@ -68,7 +71,6 @@ class SlikaKluba(models.Model):
         super(SlikaKluba, self).save(*args, **kwargs)
 
         image = Image.open(self.slika.path).convert("RGB")
-
         image.save(os.path.splitext(self.slika.path)[0] + ".webp", "webp", lossless=False, quality=50)
 
         self.slika = os.path.splitext(self.slika.name)[0] + ".webp"
