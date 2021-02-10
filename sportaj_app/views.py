@@ -1,9 +1,8 @@
 from django.views.generic.base import TemplateView
 
-import json
 from sportaj_app import models
 from django.conf import settings
-from django.http import Http404, HttpResponse
+from django.http import Http404
 
 
 class HomeView(TemplateView):
@@ -17,10 +16,14 @@ class KlubView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        context["GOOGLE_CAL_API_KEY"] = settings.GOOGLE_CAL_API_KEY
+        context["GOOGLE_SEARCH_MAPS_API_KEY"] = settings.GOOGLE_SEARCH_MAPS_API_KEY
+
         try:
             context["klub"] = models.Klub.objects.get(slug=kwargs["slug"])
             context["headerSlike"] = models.SlikaKluba.objects.filter(klub=context["klub"])
-            context["GOOGLE_CAL_API_KEY"] = settings.GOOGLE_CAL_API_KEY
+            context["latlng"] = context["klub"].location.split(",")
+            context["uniqueLatlng"] = context["klub"].location != models.get_location_city_default()
         except models.Klub.DoesNotExist or not context["headerSlike"]:
             raise Http404("Klub ne obstaja")
         return context

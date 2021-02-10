@@ -61,6 +61,34 @@
         }
     </style>
 {% endblock styling %}
+{% block scripts %}
+    {% if uniqueLatlng %}
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script defer
+                src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_SEARCH_MAPS_API_KEY }}&callback=initGMap&language=sl&region=SI">
+        </script>
+
+        <script>
+            let gMap;
+
+            function initGMap() {
+                gMap = new google.maps.Map(document.getElementById('gMap'), {
+                    center: {lat: Number('{{ latlng.0 }}'), lng: Number('{{ latlng.1 }}')},
+                    zoom: 11,
+                });
+
+                new google.maps.Marker({
+                    position: {
+                        lat: Number('{{ latlng.0 }}'),
+                        lng: Number('{{ latlng.1 }}')
+                    },
+                    map: gMap,
+                    title: '{{ klub.ime }}'
+                });
+            }
+        </script>
+    {% endif %}
+{% endblock scripts %}
 {% block main %}
     <div class="row pad-top">
         <div class="col col-md-4">
@@ -79,6 +107,7 @@
                         {% endif %}
                     </section>
                     <section class="d-flex justify-content-center profile-entries">
+                        <!-- TODO: pretvori v standardne komponente -->
                         {% if klub.homepage != None %}
                             <button class="btn btn-dribbble btn-icon-only rounded-circle"
                                     onclick="window.open('{{ klub.homepage }}', '_blank')">
@@ -114,6 +143,10 @@
                     </section>
                 </div>
             </div>
+            {% if uniqueLatlng %}
+                <div id="gMap" class="map-canvas"
+                     style="height: 448px; width: 448px; position: relative; overflow: hidden;"></div>
+            {% endif %}
         </div>
         <div class="col col-md-8">
             <div class="card border border-dark">
