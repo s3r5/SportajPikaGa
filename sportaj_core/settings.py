@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "sportaj_app",
     "pwa",
     "taggit",
+    "taggit_labels",
     "analytical",
     "mathfilters",
     "location_field.apps.DefaultConfig",

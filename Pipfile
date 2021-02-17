@@ -21,6 +21,7 @@ geopy = "*"
 django-debug-toolbar = "*"
 django-pwa = "*"
 pillow = "*"
+django-taggit-labels = "*"
 
 [requires]
 python_version = "3.8"

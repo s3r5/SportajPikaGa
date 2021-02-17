@@ -115,6 +115,7 @@
                     </section>
                     <section class="d-flex justify-content-center profile-entries">
                         <!-- TODO: pretvori v standardne komponente -->
+                        <!-- TODO: pretvori v anchor tage -->
                         {% if klub.homepage != None %}
                             <button class="btn btn-dribbble btn-icon-only rounded-circle"
                                     onclick="window.open('{{ klub.homepage }}', '_blank')">
@@ -186,13 +187,13 @@
                     <div class="row align-items-center">
                         <div class="col">
                             <div>
-                                Panoge
+                                Panoge {% include "sportaj/components/tagsDisplay.html" with tags=klub.panoge_tags.all %}
                             </div>
                             <div>
-                                Vadba
+                                Vadba {% include "sportaj/components/tagsDisplay.html" with tags=klub.vadbe_tags.all %}
                             </div>
                             <div>
-                                Starosti
+                                Starosti {% include "sportaj/components/tagsDisplay.html" with tags=klub.starosti_tags.all %}
                             </div>
                         </div>
                     </div>

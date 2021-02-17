@@ -1,0 +1,5 @@
+<div class="float-right">
+    {% for tag in tags %}
+        {% include "sportaj/components/tagPill.html" with tag=tag.name %}
+    {% endfor %}
+</div>
