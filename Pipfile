@@ -22,6 +22,7 @@ django-debug-toolbar = "*"
 django-pwa = "*"
 pillow = "*"
 django-taggit-labels = "*"
+django-colorfield = "*"
 
 [requires]
 python_version = "3.8"

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "pwa",
     "taggit",
     "taggit_labels",
+    "colorfield",
     "analytical",
     "mathfilters",
     "location_field.apps.DefaultConfig",
