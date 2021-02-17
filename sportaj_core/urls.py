@@ -27,6 +27,7 @@ urlpatterns = [
                   path("zemljevid/", sportaj_app.views.ZemljevidView.as_view(), name = "zemljevid"),
                   path("klub/<slug>", cache_page(60 * 15)(sportaj_app.views.KlubView.as_view()), name = "klub"),
                   path("admin/", admin.site.urls),
+                  path('faicon/', include('faicon.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

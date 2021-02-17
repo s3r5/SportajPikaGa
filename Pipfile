@@ -23,6 +23,7 @@ django-pwa = "*"
 pillow = "*"
 django-taggit-labels = "*"
 django-colorfield = "*"
+django-faicon = "*"
 
 [requires]
 python_version = "3.8"

@@ -4,12 +4,14 @@ from django.utils.translation import ugettext_lazy as _
 from taggit.managers import TaggableManager
 from taggit.models import TagBase, TaggedItemBase
 from colorfield.fields import ColorField
+from faicon.fields import FAIconField
 from django.contrib import admin
 from taggit.admin import TagAdmin
 
 
 class CustomTag(TagBase):
-    colour = ColorField(default="#2643E900", format="hexa")
+    colour = ColorField(default="#2643E9FF", format="hexa")
+    icon = FAIconField(blank=True)
 
     class Meta:
         verbose_name = _("Custom tag")

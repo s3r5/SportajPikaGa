@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "taggit",
     "taggit_labels",
     "colorfield",
+    "faicon",
     "analytical",
     "mathfilters",
     "location_field.apps.DefaultConfig",
