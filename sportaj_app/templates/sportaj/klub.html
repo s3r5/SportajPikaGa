@@ -115,38 +115,37 @@
                     </section>
                     <section class="d-flex justify-content-center profile-entries">
                         <!-- TODO: pretvori v standardne komponente -->
-                        <!-- TODO: pretvori v anchor tage -->
                         {% if klub.homepage != None %}
-                            <button class="btn btn-dribbble btn-icon-only rounded-circle"
-                                    onclick="window.open('{{ klub.homepage }}', '_blank')">
+                            <a class="btn btn-dribbble btn-icon-only rounded-circle"
+                               href="{{ klub.homepage }}" target="_blank">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-globe"></i>
                                 </span>
-                            </button>
+                            </a>
                         {% endif %}
                         {% if klub.email != None %}
-                            <button class="btn btn-twitter btn-icon-only rounded-circle"
-                                    onclick="window.open('mailto:{{ klub.email }}', '_blank')">
+                            <a class="btn btn-twitter btn-icon-only rounded-circle"
+                               href="mailto:{{ klub.email }}" target="_blank">
                                 <span class="btn-inner--icon">
                                     <i class="fab fa-paper-plane"></i>
                                 </span>
-                            </button>
+                            </a>
                         {% endif %}
                         {% if klub.facebook != None %}
-                            <button class="btn btn-facebook btn-icon-only rounded-circle"
-                                    onclick="window.open('{{ klub.facebook }}', '_blank')">
+                            <a class="btn btn-facebook btn-icon-only rounded-circle"
+                               href="{{ klub.facebook }}" target="_blank">
                                 <span class="btn-inner--icon">
                                     <i class="fab fa-facebook"></i>
                                 </span>
-                            </button>
+                            </a>
                         {% endif %}
                         {% if klub.twitter != None %}
-                            <button class="btn btn-twitter btn-icon-only rounded-circle"
-                                    onclick="window.open('{{ klub.twitter }}', '_blank')">
+                            <a class="btn btn-twitter btn-icon-only rounded-circle"
+                               href="{{ klub.twitter }}" target="_blank">
                                 <span class="btn-inner--icon">
                                     <i class="fab fa-twitter"></i>
                                 </span>
-                            </button>
+                            </a>
                         {% endif %}
                     </section>
                 </div>
