@@ -1,3 +1,6 @@
 <span class="badge badge-pill badge-primary">
-    {{ tag }}
+    {% if tag.icon %}
+        <i class="{{ tag.icon.style }} fa-{{ tag.icon.icon }}"></i>
+    {% endif %}
+    {{ tag.name }}
 </span>
