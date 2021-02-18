@@ -17,6 +17,7 @@ class KlubAdminForm(forms.ModelForm):
     class Meta:
         model = Klub
         fields = [
+            "slug",
             "ime",
             "opis",
             "logo",
