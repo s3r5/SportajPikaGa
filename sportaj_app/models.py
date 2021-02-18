@@ -2,13 +2,17 @@ from django.db import models
 
 import os
 from PIL import Image
-from geopy.geocoders import Nominatim
+from geopy.geocoders import GoogleV3
 from location_field.models.plain import PlainLocationField
+from django.conf import settings
 
 from .tags import custom_tag_field
 
 
-geolocator = Nominatim(user_agent="sportaj.ga")
+geolocator = GoogleV3(
+    api_key=settings.GOOGLE_GEO_API_KEY,
+    domain="maps.google.si"
+)
 
 
 def get_header_images_default(): list([])

@@ -1,6 +1,5 @@
 {% extends 'sportaj/base.html' %}
 {% load mathfilters %}
-{% load latlongToHuman %}
 
 {% block title %}{{ klub.ime }} - Sportaj.ga{% endblock title %}
 {% block head %}
@@ -107,11 +106,7 @@
                 <div class="card-body">
                     <section class="d-flex justify-content-center profile-entries">
                         <i id="address-pin" class="fas fa-map-pin fa-lg"></i>
-                        {% if klub.location_friendly %}
-                            {{ klub.location_friendly }}
-                        {% else %}
-                            {{ klub.location|latlongHuman }}
-                        {% endif %}
+                        {{ klub.location_friendly }}
                     </section>
                     <section class="d-flex justify-content-center profile-entries">
                         <!-- TODO: pretvori v standardne komponente -->

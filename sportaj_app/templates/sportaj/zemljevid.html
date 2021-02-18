@@ -1,5 +1,4 @@
 {% extends 'sportaj/base.html' %}
-{% load latlongToHuman %}
 
 {% block title %}Zemljevid klubov - Sportaj.ga{% endblock title %}
 {% block og_title %}Zemljevid klubov - Sportaj.ga{% endblock og_title %}
@@ -145,11 +144,7 @@
                                             <div class="media-content">
                                                 <i class="fas fa-map-pin fa-lg address-pin"></i>
                                                 <span>
-                                                    {% if klub.location %}
-                                                        {{ klub.location }}
-                                                    {% else %}
-                                                        {{ klub.latlong.0|add:","|add:klub.latlong.1|latlongHuman }}
-                                                    {% endif %}
+                                                    {{ klub.location }}
                                                 </span>
                                             </div>
                                         </div>
