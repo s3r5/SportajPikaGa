@@ -55,6 +55,10 @@
             padding-right: 1%;
         }
 
+        div.tags {
+            margin-bottom: 2px;
+        }
+
         #address-pin {
             margin-right: 1em;
         }
@@ -180,16 +184,16 @@
                     </div>
                     <div class="row align-items-center">
                         <div class="col">
-                            <div>
+                            <div class="tags">
                                 Panoge {% include "sportaj/components/tagsDisplay.html" with tags=klub.panoge_tags.all %}
                             </div>
-                            <div>
+                            <div class="tags">
                                 Vadba {% include "sportaj/components/tagsDisplay.html" with tags=klub.vadbe_tags.all %}
                             </div>
-                            <div>
+                            <div class="tags">
                                 Starosti {% include "sportaj/components/tagsDisplay.html" with tags=klub.starosti_tags.all %}
                             </div>
-                            <div>
+                            <div class="tags">
                                 Spoli {% include "sportaj/components/tagsDisplay.html" with tags=klub.spoli_tags.all %}
                             </div>
                         </div>
