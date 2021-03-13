@@ -24,6 +24,7 @@ pillow = "*"
 django-taggit-labels = "*"
 django-colorfield = "*"
 django-faicon = "*"
+sentry-sdk = "*"
 
 [requires]
 python_version = "3.8"
