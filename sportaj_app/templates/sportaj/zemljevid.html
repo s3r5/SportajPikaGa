@@ -107,6 +107,18 @@
                 });
             {% endfor %}
         }
+
+        $(document).ready(function () {
+
+            const izborPanog = new Choices('#izbor-panog', {
+                removeItemButton: true,
+                maxItemCount: 5,
+                searchResultLimit: 5,
+                renderChoiceLimit: 5
+            });
+
+
+        });
     </script>
 {% endblock scripts %}
 
@@ -120,6 +132,19 @@
                         <h6 class="h2 text-white">Zemljevid klubov</h6>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col">
+                <select name="Izbor panog" id="izbor-panog" placeholder="Izberi 5 panog" multiple>
+                    <option value="Atletika">Atletika</option>
+                    <option value="Gimnastika">Gimnastika</option>
+                    <option value="Plavanje">Plavanje</option>
+                    <option value="Odbojka">Odbojka</option>
+                    <option value="Rokomet">Rokomet</option>
+                </select>
             </div>
         </div>
     </div>
