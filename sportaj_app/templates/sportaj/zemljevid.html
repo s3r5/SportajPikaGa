@@ -111,18 +111,6 @@
                 });
             {% endfor %}
         }
-
-        $(document).ready(function () {
-
-            const izborPanog = new Choices('#izbor-panog', {
-                removeItemButton: true,
-                maxItemCount: 5,
-                searchResultLimit: 5,
-                renderChoiceLimit: 5
-            });
-
-
-        });
     </script>
 {% endblock scripts %}
 
@@ -192,3 +180,18 @@
         </div>
     </div>
 {% endblock main %}
+{% block body_bottom %}
+    <script>
+        (function () {
+
+            const izborPanog = new Choices('#izbor-panog', {
+                removeItemButton: true,
+                maxItemCount: 5,
+                searchResultLimit: 5,
+                renderChoiceLimit: 5
+            });
+
+
+        })();
+    </script>
+{% endblock body_bottom %}
