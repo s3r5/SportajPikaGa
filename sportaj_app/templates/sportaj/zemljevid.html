@@ -134,12 +134,24 @@
     <div class="container-fluid mt--6">
         <div class="row gx-5 drop-down-padding">
             <div class="col">
-                <select name="Izbor panog" id="izbor-panog" placeholder="Izberi 5 panog" multiple>
+                <select name="Izbor panoge" id="izbor-panoga" placeholder="Športna panoga" multiple>
                     <option value="Atletika">Atletika</option>
                     <option value="Gimnastika">Gimnastika</option>
                     <option value="Plavanje">Plavanje</option>
                     <option value="Odbojka">Odbojka</option>
                     <option value="Rokomet">Rokomet</option>
+                </select>
+            </div>
+            <div class="col">
+                <select name="Izbor tipa vadbe" id="izbor-vadba" placeholder="Tip vadbe" multiple>
+                </select>
+            </div>
+            <div class="col">
+                <select name="Izbor starosti" id="izbor-starost" placeholder="Starost" multiple>
+                </select>
+            </div>
+            <div class="col">
+                <select name="Izbor spola" id="izbor-spol" placeholder="Spol" multiple>
                 </select>
             </div>
         </div>
@@ -187,7 +199,25 @@
 {% block body_bottom %}
     <script>
         (function () {
-            const izborPanog = new Choices('#izbor-panog', {
+            const izborPanoga = new Choices('#izbor-panoga', {
+                removeItemButton: true,
+                maxItemCount: 5,
+                searchResultLimit: 5,
+                renderChoiceLimit: 5
+            });
+            const izborVadba = new Choices('#izbor-vadba', {
+                removeItemButton: true,
+                maxItemCount: 5,
+                searchResultLimit: 5,
+                renderChoiceLimit: 5
+            });
+            const izborStarost = new Choices('#izbor-starost', {
+                removeItemButton: true,
+                maxItemCount: 5,
+                searchResultLimit: 5,
+                renderChoiceLimit: 5
+            });
+            const izborSpol = new Choices('#izbor-spol', {
                 removeItemButton: true,
                 maxItemCount: 5,
                 searchResultLimit: 5,
