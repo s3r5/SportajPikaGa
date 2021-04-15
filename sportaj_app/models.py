@@ -34,7 +34,7 @@ class Klub(models.Model):
     slug = models.SlugField(unique=True)
 
     ime = models.CharField(max_length=512)
-    opis = models.CharField(max_length=4096)
+    opis = models.TextField(null=True, blank=True)
 
     logo = models.ImageField(upload_to="klub_logo/", blank=True)
 
