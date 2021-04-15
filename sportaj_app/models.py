@@ -21,10 +21,10 @@ def get_header_images_default(): list([])
 def get_location_city_default():
     return "46.55472,15.64667"
 
-PanogeManager = custom_tag_field("sportaj_app", "Klub", "Panoga", "panoge")
-VadbeManager = custom_tag_field("sportaj_app", "Klub", "Vadba", "vadbe")
-StarostiManager = custom_tag_field("sportaj_app", "Klub", "Starost", "starosti")
-SpoliManager = custom_tag_field("sportaj_app", "Klub", "Spol", "spoli")
+PanogaManager = custom_tag_field("sportaj_app", "Klub", "Panoga", "panoge")
+VadbaManager = custom_tag_field("sportaj_app", "Klub", "Vadba", "vadbe")
+StarostManager = custom_tag_field("sportaj_app", "Klub", "Starost", "starosti")
+SpolManager = custom_tag_field("sportaj_app", "Klub", "Spol", "spoli")
 
 
 class Klub(models.Model):
@@ -46,10 +46,10 @@ class Klub(models.Model):
     twitter = models.URLField(null=True, blank=True)
     facebook = models.URLField(null=True, blank=True)
 
-    panoge_tags = PanogeManager
-    vadbe_tags = VadbeManager
-    starosti_tags = StarostiManager
-    spoli_tags = SpoliManager
+    panoga_tags = PanogaManager
+    vadba_tags = VadbaManager
+    starost_tags = StarostManager
+    spol_tags = SpolManager
 
     class Meta:
         verbose_name = "Klub"

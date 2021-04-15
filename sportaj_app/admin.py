@@ -2,17 +2,17 @@ from django.contrib import admin
 from django import forms
 from taggit_labels import widgets
 
-from .models import Klub, SlikaKluba, PanogeManager, VadbeManager, StarostiManager, SpoliManager
+from .models import Klub, SlikaKluba, PanogaManager, VadbaManager, StarostManager, SpolManager
 from .tags import custom_tag_register_admin
 
 
 class KlubAdminForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["panoge_tags"].widget = widgets.LabelWidget(model=Klub.panoge_tags.through.tag_class)
-        self.fields["vadbe_tags"].widget = widgets.LabelWidget(model=Klub.vadbe_tags.through.tag_class)
-        self.fields["starosti_tags"].widget = widgets.LabelWidget(model=Klub.starosti_tags.through.tag_class)
-        self.fields["spoli_tags"].widget = widgets.LabelWidget(model=Klub.spoli_tags.through.tag_class)
+        self.fields["panoga_tags"].widget = widgets.LabelWidget(model=Klub.panoga_tags.through.tag_class)
+        self.fields["vadba_tags"].widget = widgets.LabelWidget(model=Klub.vadba_tags.through.tag_class)
+        self.fields["starost_tags"].widget = widgets.LabelWidget(model=Klub.starost_tags.through.tag_class)
+        self.fields["spol_tags"].widget = widgets.LabelWidget(model=Klub.spol_tags.through.tag_class)
 
     class Meta:
         model = Klub
@@ -27,10 +27,10 @@ class KlubAdminForm(forms.ModelForm):
             "homepage",
             "twitter",
             "facebook",
-            "panoge_tags",
-            "vadbe_tags",
-            "starosti_tags",
-            "spoli_tags"
+            "panoga_tags",
+            "vadba_tags",
+            "starost_tags",
+            "spol_tags"
         ]
 
 class SlikaKlubaAdmin(admin.StackedInline):
@@ -51,7 +51,7 @@ class SlikaKlubaAdmin(admin.ModelAdmin):
     pass
 
 
-custom_tag_register_admin(PanogeManager.through)
-custom_tag_register_admin(VadbeManager.through)
-custom_tag_register_admin(StarostiManager.through)
-custom_tag_register_admin(SpoliManager.through)
+custom_tag_register_admin(PanogaManager.through)
+custom_tag_register_admin(VadbaManager.through)
+custom_tag_register_admin(StarostManager.through)
+custom_tag_register_admin(SpolManager.through)
