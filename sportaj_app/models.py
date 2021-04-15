@@ -22,9 +22,12 @@ def get_location_city_default():
     return "46.55472,15.64667"
 
 PanogaManager = custom_tag_field("sportaj_app", "Klub", "Panoga", "panoge")
+TipManager = custom_tag_field("sportaj_app", "Klub", "Tip", "tipi")
 VadbaManager = custom_tag_field("sportaj_app", "Klub", "Vadba", "vadbe")
 StarostManager = custom_tag_field("sportaj_app", "Klub", "Starost", "starosti")
 SpolManager = custom_tag_field("sportaj_app", "Klub", "Spol", "spoli")
+UrnikManager = custom_tag_field("sportaj_app", "Klub", "Urnik", "urniki")
+CenaManager = custom_tag_field("sportaj_app", "Klub", "Cena", "urniki")
 
 
 class Klub(models.Model):
@@ -47,9 +50,12 @@ class Klub(models.Model):
     facebook = models.URLField(null=True, blank=True)
 
     panoga_tags = PanogaManager
+    tip_tags = TipManager
     vadba_tags = VadbaManager
     starost_tags = StarostManager
     spol_tags = SpolManager
+    urnik_tags = UrnikManager
+    cena_tags = CenaManager
 
     class Meta:
         verbose_name = "Klub"

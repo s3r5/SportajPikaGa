@@ -185,6 +185,9 @@
                     <div class="row align-items-center">
                         <div class="col">
                             <div class="tags">
+                                Tip {% include "sportaj/components/tagsDisplay.html" with tags=klub.tip_tags.all %}
+                            </div>
+                            <div class="tags">
                                 Vadba {% include "sportaj/components/tagsDisplay.html" with tags=klub.vadba_tags.all %}
                             </div>
                             <div class="tags">
@@ -192,6 +195,12 @@
                             </div>
                             <div class="tags">
                                 Spol {% include "sportaj/components/tagsDisplay.html" with tags=klub.spol_tags.all %}
+                            </div>
+                            <div class="tags">
+                                Urnik {% include "sportaj/components/tagsDisplay.html" with tags=klub.urnik_tags.all %}
+                            </div>
+                            <div class="tags">
+                                Cena {% include "sportaj/components/tagsDisplay.html" with tags=klub.cena_tags.all %}
                             </div>
                         </div>
                     </div>
