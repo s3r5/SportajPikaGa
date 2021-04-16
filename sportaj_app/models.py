@@ -26,7 +26,7 @@ TipManager = custom_tag_field("sportaj_app", "Klub", "Tip", "tipi")
 VadbaManager = custom_tag_field("sportaj_app", "Klub", "Vadba", "vadbe")
 StarostManager = custom_tag_field("sportaj_app", "Klub", "Starost", "starosti")
 SpolManager = custom_tag_field("sportaj_app", "Klub", "Spol", "spoli")
-UrnikManager = custom_tag_field("sportaj_app", "Klub", "Urnik", "urniki")
+# UrnikManager = custom_tag_field("sportaj_app", "Klub", "Urnik", "urniki")
 CenaManager = custom_tag_field("sportaj_app", "Klub", "Cena", "urniki")
 
 
@@ -55,7 +55,7 @@ class Klub(models.Model):
     vadba_tags = VadbaManager
     starost_tags = StarostManager
     spol_tags = SpolManager
-    urnik_tags = UrnikManager
+    # urnik_tags = UrnikManager
     cena_tags = CenaManager
 
     class Meta:

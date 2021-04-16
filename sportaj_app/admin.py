@@ -2,7 +2,7 @@ from django.contrib import admin
 from django import forms
 from taggit_labels import widgets
 
-from .models import Klub, SlikaKluba, PanogaManager, TipManager, VadbaManager, StarostManager, SpolManager, UrnikManager, CenaManager
+from .models import Klub, SlikaKluba, PanogaManager, TipManager, VadbaManager, StarostManager, SpolManager, CenaManager
 from .tags import custom_tag_register_admin
 
 
@@ -14,7 +14,7 @@ class KlubAdminForm(forms.ModelForm):
         self.fields["vadba_tags"].widget = widgets.LabelWidget(model=Klub.vadba_tags.through.tag_class)
         self.fields["starost_tags"].widget = widgets.LabelWidget(model=Klub.starost_tags.through.tag_class)
         self.fields["spol_tags"].widget = widgets.LabelWidget(model=Klub.spol_tags.through.tag_class)
-        self.fields["urnik_tags"].widget = widgets.LabelWidget(model=Klub.urnik_tags.through.tag_class)
+        # self.fields["urnik_tags"].widget = widgets.LabelWidget(model=Klub.urnik_tags.through.tag_class)
         self.fields["cena_tags"].widget = widgets.LabelWidget(model=Klub.cena_tags.through.tag_class)
 
     class Meta:
@@ -35,7 +35,7 @@ class KlubAdminForm(forms.ModelForm):
             "vadba_tags",
             "starost_tags",
             "spol_tags",
-            "urnik_tags",
+#            "urnik_tags",
             "cena_tags"
         ]
 
@@ -62,5 +62,5 @@ custom_tag_register_admin(TipManager.through)
 custom_tag_register_admin(VadbaManager.through)
 custom_tag_register_admin(StarostManager.through)
 custom_tag_register_admin(SpolManager.through)
-custom_tag_register_admin(UrnikManager.through)
+# custom_tag_register_admin(UrnikManager.through)
 custom_tag_register_admin(CenaManager.through)
