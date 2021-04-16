@@ -126,7 +126,7 @@
                             <a class="btn btn-twitter btn-icon-only rounded-circle"
                                href="mailto:{{ klub.mail }}" target="_blank">
                                 <span class="btn-inner--icon">
-                                    <i class="fab fa-paper-plane"></i>
+                                    <i class="fas fa-paper-plane"></i>
                                 </span>
                             </a>
                         {% endif %}
@@ -143,6 +143,14 @@
                                href="{{ klub.twitter }}" target="_blank">
                                 <span class="btn-inner--icon">
                                     <i class="fab fa-twitter"></i>
+                                </span>
+                            </a>
+                        {% endif %}
+                        {% if klub.urnikPovezava != None %}
+                            <a class="btn btn-dribbble btn-icon-only rounded-circle"
+                               href="{{ klub.urnikPovezava }}" target="_blank">
+                                <span class="btn-inner--icon">
+                                    <i class="far fa-calendar-alt"></i>
                                 </span>
                             </a>
                         {% endif %}

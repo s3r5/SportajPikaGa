@@ -42,6 +42,7 @@ class Klub(models.Model):
     location_friendly = models.CharField(max_length=4096, null=True, blank=True)
 
     urnik = models.CharField(max_length=512, null=True, blank=True)
+    urnikPovezava = models.URLField(null=True, blank=True)
 
     mail = models.EmailField(null=True, blank=True)
     homepage = models.URLField(null=True, blank=True)
